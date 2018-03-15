@@ -1,6 +1,6 @@
 <?php
 
-namespace kouosl\sample\models;
+namespace kouosl\menu\models;
 
 use Yii;
 
@@ -13,7 +13,7 @@ use Yii;
  *
  * @property Samples $sample
  */
-class SampleData extends \yii\db\ActiveRecord
+class MenuData extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc

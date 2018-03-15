@@ -5,7 +5,7 @@ namespace kouosl\sample\controllers\api;
 use kouosl\sample\models\Samples;
 use Yii;
 
-class SamplesController extends DefaultController {
+class MenuController extends DefaultController {
 	
 	public $modelClass = 'kouosl\sample\models\Samples';
 	

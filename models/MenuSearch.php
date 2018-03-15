@@ -1,6 +1,6 @@
 <?php
 
-namespace kouosl\sample\models;
+namespace kouosl\menu\models;
 
 use Yii;
 use yii\base\Model;
@@ -9,7 +9,7 @@ use yii\data\ActiveDataProvider;
 /**
  * SampleSearch represents the model behind the search form about `app\modules\sample\models\Sample`.
  */
-class SamplesSearch extends Samples
+class MenuSearch extends Menu
 {
     /**
      * @inheritdoc

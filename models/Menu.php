@@ -1,6 +1,6 @@
 <?php
 
-namespace kouosl\sample\models;
+namespace kouosl\menu\models;
 
 use Yii;
 
@@ -14,7 +14,7 @@ use Yii;
  *
  * @property data[] $data
  */
-class Samples extends \yii\db\ActiveRecord
+class Menu extends \yii\db\ActiveRecord
 {
 
     /**
