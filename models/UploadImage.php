@@ -1,8 +1,8 @@
 <?php
 
-namespace kouosl\sample\models;
+namespace kouosl\menu\models;
 
-use kouosl\sample\Module;
+use kouosl\menu\Module;
 use Yii;
 
 /**

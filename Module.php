@@ -75,7 +75,7 @@ class Module extends \kouosl\base\Module
             [
                 'class' => 'yii\rest\UrlRule',
                 'controller' => [
-                    'menu/menus',
+                    'menu/Menu',
                 ],
                 'tokens' => [
                     '{id}' => '<id:\\w+>'
