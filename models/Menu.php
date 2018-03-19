@@ -5,7 +5,7 @@ namespace kouosl\menu\models;
 use Yii;
 
 /**
- * This is the model class for table "samples".
+ * This is the model class for table "menu".
  *
  * @property integer $id
  * @property string $title
@@ -22,7 +22,7 @@ class Menu extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'samples';
+        return 'menu';
     }
 
     /**
@@ -51,7 +51,7 @@ class Menu extends \yii\db\ActiveRecord
     }
 
     public function getImagePath(){
-        return sprintf("%s/samples/%s",Yii::getAlias ( '@data' ),$this->picture);
+        return sprintf("%s/menu/%s",Yii::getAlias ( '@data' ),$this->picture);
     }
 
     /**
@@ -59,6 +59,6 @@ class Menu extends \yii\db\ActiveRecord
      */
     public function getData()
     {
-        return $this->hasMany(SampleData::className(), ['sample_id' => 'id']);
+        return $this->hasMany(MenuData::className(), ['menu_id' => 'id']);
     }
 }

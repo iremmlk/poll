@@ -2,7 +2,7 @@
 
 namespace kouosl\menu\controllers\backend;
 
-use kouosl\menu\models\menuData;
+use kouosl\menu\models\MenuData;
 use kouosl\menu\models\UploadImage;
 use Yii;
 use kouosl\menu\models\Menu;

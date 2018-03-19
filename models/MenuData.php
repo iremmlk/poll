@@ -5,13 +5,13 @@ namespace kouosl\menu\models;
 use Yii;
 
 /**
- * This is the model class for table "sample_data".
+ * This is the model class for table "menu_data".
  *
  * @property integer $id
  * @property string $name
- * @property integer $sample_id
+ * @property integer $menu_id
  *
- * @property Samples $sample
+ * @property Menu $menu
  */
 class MenuData extends \yii\db\ActiveRecord
 {
@@ -20,7 +20,7 @@ class MenuData extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'sample_data';
+        return 'menu_data';
     }
 
     /**
@@ -29,10 +29,10 @@ class MenuData extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'sample_id'], 'required'],
-            [['sample_id'], 'integer'],
+            [['name', 'menu_id'], 'required'],
+            [['menu_id'], 'integer'],
             [['name'], 'string', 'max' => 255],
-            [['sample_id'], 'exist', 'skipOnError' => true, 'targetClass' => Samples::className(), 'targetAttribute' => ['sample_id' => 'id']],
+            [['menu_id'], 'exist', 'skipOnError' => true, 'targetClass' => Menu::className(), 'targetAttribute' => ['menu_id' => 'id']],
         ];
     }
 
@@ -44,15 +44,15 @@ class MenuData extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'name' => 'Name',
-            'sample_id' => 'Sample ID',
+            'menu_id' => 'Menu ID',
         ];
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getSample()
+    public function getmenu()
     {
-        return $this->hasOne(Samples::className(), ['id' => 'sample_id']);
+        return $this->hasOne(Menu::className(), ['id' => 'menu_id']);
     }
 }
