@@ -1,12 +1,12 @@
 <?php
 
-namespace kouosl\menu\controllers\backend;
+namespace kouosl\blog\controllers\backend;
 
-use kouosl\menu\models\MenuData;
-use kouosl\menu\models\UploadImage;
+use kouosl\blog\models\BlogData;
+use kouosl\blog\models\UploadImage;
 use Yii;
-use kouosl\menu\models\Menu;
-use kouosl\menu\models\MenuSearch;
+use kouosl\blog\models\Blog;
+use kouosl\blog\models\BlogSearch;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UnauthorizedHttpException;
@@ -14,9 +14,9 @@ use yii\web\Session;
 use yii\web\UploadedFile;
 use yii\filters\AccessControl;
 /**
- * MenuController implements the CRUD actions for menu model.
+ * BlogController implements the CRUD actions for menu model.
  */
-class MenuController extends DefaultController
+class BlogController extends DefaultController
 {
     public function behaviors()
     {
@@ -52,7 +52,7 @@ class MenuController extends DefaultController
     }
 
     /**
-     * Lists all menu models.
+     * Lists all blog models.
      * @return mixed
      */
     public function actionManage()
@@ -60,7 +60,7 @@ class MenuController extends DefaultController
     	
 
     	
-        $searchModel = new MenuSearch();
+        $searchModel = new BlogSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('_manage', [
@@ -92,7 +92,7 @@ class MenuController extends DefaultController
     {
 
     	
-        $model = new Menu();
+        $model = new Blog();
 
         $uploadImage = new UploadImage();
 
@@ -104,7 +104,7 @@ class MenuController extends DefaultController
 
             if(!$model->save()){
 
-                yii::$app->session->setFlash('flashMessage', ['type' => 'error', 'message' => Module::t('menu', 'menu Not Saved' )]);
+                yii::$app->session->setFlash('flashMessage', ['type' => 'error', 'message' => Module::t('blog', 'blog Not Saved' )]);
 
                 return $this->render('_create', ['model' => $model]); // error
             }
@@ -121,7 +121,7 @@ class MenuController extends DefaultController
     }
 
     /**
-     * Updates an existing menu model.
+     * Updates an existing blog model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -145,7 +145,7 @@ class MenuController extends DefaultController
 
             if(!$model->save()){
 
-                yii::$app->session->setFlash('flashMessage', ['type' => 'error', 'message' => Module::t('menu', 'menu Not Saved' )]);
+                yii::$app->session->setFlash('flashMessage', ['type' => 'error', 'message' => Module::t('blog', 'blog Not Saved' )]);
 
                 return $this->render('_update', ['model' => $model]); // error
             }
@@ -170,7 +170,7 @@ class MenuController extends DefaultController
     public function actionDelete($id)
     {
 
-        menuData::deleteAll(['menu_id' => $id]);
+        blogData::deleteAll(['blog_id' => $id]);
 
         $model = $this->findModel($id);
 
@@ -185,10 +185,10 @@ class MenuController extends DefaultController
     }
 
     /**
-     * Finds the menu model based on its primary key value.
+     * Finds the blog model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return menu the loaded model
+     * @return blog the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)

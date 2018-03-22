@@ -1,6 +1,6 @@
 <?php
 
-namespace kouosl\menu\controllers\api;
+namespace kouosl\blog\controllers\api;
 
 
 class DefaultController extends \kouosl\base\controllers\api\BaseController

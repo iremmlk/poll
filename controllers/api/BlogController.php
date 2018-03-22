@@ -1,13 +1,13 @@
 <?php
 
-namespace kouosl\menu\controllers\api;
+namespace kouosl\blog\controllers\api;
 
-use kouosl\menu\models\Menu;
+use kouosl\blog\models\Blog;
 use Yii;
 
 class MenuController extends DefaultController {
 	
-	public $modelClass = 'kouosl\menu\models\Menu';
+	public $modelClass = 'kouosl\blog\models\Blog';
 	
 	public function actions() {
 		$actions = parent::actions ();

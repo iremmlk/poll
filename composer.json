@@ -1,8 +1,8 @@
 {
-    "name": "kouosl/menu",
-    "description": "Yii2 KouOsl menu Module Integration",
+    "name": "kouosl/blog",
+    "description": "Yii2 KouOsl blog Module Integration",
     "type": "yii2-extension",
-    "keywords": ["yii2", "yii 2", "Menu", "menu", "module", "modules"],
+    "keywords": ["yii2", "yii 2", "Blog", "blog", "module", "modules"],
     "license": "BSD-3-Clause",
     "authors": [
         {
@@ -12,7 +12,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "kouosl\\menu\\": ""
+            "kouosl\\blog\\": ""
         }
     }
 }

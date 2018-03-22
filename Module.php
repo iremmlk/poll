@@ -1,6 +1,6 @@
 <?php
 
-namespace kouosl\menu;
+namespace kouosl\blog;
 use Yii;
 use yii\filters\auth\CompositeAuth;
 use yii\filters\auth\HttpBasicAuth;
@@ -57,16 +57,16 @@ class Module extends \kouosl\base\Module
         Yii::$app->i18n->translations['site/*'] = [
             'class' => 'yii\i18n\PhpMessageSource',
             'sourceLanguage' => 'en-US',
-            'basePath' => '@kouosl/menu/messages',
+            'basePath' => '@kouosl/blog/messages',
             'fileMap' => [
-                'menu/menu' => 'menu.php',
+                'blog/blog' => 'blog.php',
             ],
         ];
     }
 
     public static function t($category, $message, $params = [], $language = null)
     {
-        return Yii::t('menu/' . $category, $message, $params, $language);
+        return Yii::t('blog/' . $category, $message, $params, $language);
     }
 
     public static function initRules(){
@@ -75,7 +75,7 @@ class Module extends \kouosl\base\Module
             [
                 'class' => 'yii\rest\UrlRule',
                 'controller' => [
-                    'menu/Menu',
+                    'blog/Blog',
                 ],
                 'tokens' => [
                     '{id}' => '<id:\\w+>'

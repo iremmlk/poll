@@ -1,11 +1,11 @@
 <?php
 
-namespace kouosl\menu\models;
+namespace kouosl\blog\models;
 
 use Yii;
 
 /**
- * This is the model class for table "menu".
+ * This is the model class for table "blog".
  *
  * @property integer $id
  * @property string $title
@@ -14,7 +14,7 @@ use Yii;
  *
  * @property data[] $data
  */
-class Menu extends \yii\db\ActiveRecord
+class Blog extends \yii\db\ActiveRecord
 {
 
     /**
@@ -22,7 +22,7 @@ class Menu extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'menu';
+        return 'blog';
     }
 
     /**
@@ -51,7 +51,7 @@ class Menu extends \yii\db\ActiveRecord
     }
 
     public function getImagePath(){
-        return sprintf("%s/menu/%s",Yii::getAlias ( '@data' ),$this->picture);
+        return sprintf("%s/blog/%s",Yii::getAlias ( '@data' ),$this->picture);
     }
 
     /**
@@ -59,6 +59,6 @@ class Menu extends \yii\db\ActiveRecord
      */
     public function getData()
     {
-        return $this->hasMany(MenuData::className(), ['menu_id' => 'id']);
+        return $this->hasMany(BlogData::className(), ['blog_id' => 'id']);
     }
 }
