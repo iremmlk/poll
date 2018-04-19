@@ -51,7 +51,6 @@ class BlogController extends DefaultController
     	parent::init();
     
     }
-
     
 
     public function actionIndex()
