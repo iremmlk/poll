@@ -47,6 +47,13 @@ class Blog extends \yii\db\ActiveRecord
             'title' => 'Title',
             'description' => 'Description',
             'picture' => 'Picture',
+            'body' => 'Body',
+            'created_at' =>'Created At',
+            'created_by' =>'Created By',
+            'updated_at' => 'Updated At',
+            'updated_by' => 'Updated By',
+            'category_id' => 'Category Id',
+            'category' => 'Category'
         ];
     }
 

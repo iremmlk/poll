@@ -7,12 +7,14 @@ use kouosl\blog\models\UploadImage;
 use Yii;
 use kouosl\blog\models\Blog;
 use kouosl\blog\models\BlogSearch;
+use kouosl\blog\models\Content;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UnauthorizedHttpException;
 use yii\web\Session;
 use yii\web\UploadedFile;
 use yii\filters\AccessControl;
+use yii\data\ActiveDataProvider;
 /**
  * BlogController implements the CRUD actions for menu model.
  */
@@ -52,6 +54,20 @@ class BlogController extends DefaultController
     
     }
     
+    public function actionContent()
+    {
+        $provider = new ActiveDataProvider(
+            [
+                'query' => Content::find(),
+                'pagination' => [
+                    'pageSize' => 2,
+                ],
+            ]);
+        
+        return $this -> render ('_content',[
+            'dataProvider' => $provider,
+        ]);
+    }
 
     public function actionIndex()
     {
