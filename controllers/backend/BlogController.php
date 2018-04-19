@@ -21,7 +21,7 @@ class BlogController extends DefaultController
 
 
 
-    public 
+     
     public function behaviors()
     {
         return [
