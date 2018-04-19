@@ -18,6 +18,10 @@ use yii\filters\AccessControl;
  */
 class BlogController extends DefaultController
 {
+
+
+
+    public 
     public function behaviors()
     {
         return [
@@ -41,10 +45,14 @@ class BlogController extends DefaultController
         ];
       
     }
+
+    
     public function init(){
     	parent::init();
     
     }
+
+    
 
     public function actionIndex()
     {
