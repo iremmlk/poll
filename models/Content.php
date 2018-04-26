@@ -1,6 +1,6 @@
 <?php
 
-namespace kouosl\blog\models;
+namespace kouosl\poll\models;
 
 use Yii;
 
@@ -14,7 +14,7 @@ use Yii;
  *
  * @property data[] $data
  */
-class Blog extends \yii\db\ActiveRecord
+class poll extends \yii\db\ActiveRecord
 {
 
     /**
@@ -58,7 +58,7 @@ class Blog extends \yii\db\ActiveRecord
     }
 
     public function getImagePath(){
-        return sprintf("%s/blog/%s",Yii::getAlias ( '@data' ),$this->picture);
+        return sprintf("%s/poll/%s",Yii::getAlias ( '@data' ),$this->picture);
     }
 
     /**
@@ -66,6 +66,6 @@ class Blog extends \yii\db\ActiveRecord
      */
     public function getData()
     {
-        return $this->hasMany(BlogData::className(), ['blog_id' => 'id']);
+        return $this->hasMany(pollData::className(), ['poll_id' => 'id']);
     }
 }

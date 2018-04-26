@@ -1,13 +1,13 @@
 <?php
 
-namespace kouosl\blog\controllers\api;
+namespace kouosl\poll\controllers\api;
 
-use kouosl\blog\models\Blog;
+use kouosl\poll\models\poll;
 use Yii;
 
 class MenuController extends DefaultController {
 	
-	public $modelClass = 'kouosl\blog\models\Blog';
+	public $modelClass = 'kouosl\poll\models\poll';
 	
 	public function actions() {
 		$actions = parent::actions ();

@@ -1,13 +1,13 @@
 <?php
 
-namespace kouosl\blog\controllers\backend;
+namespace kouosl\poll\controllers\backend;
 
-use kouosl\blog\models\BlogData;
-use kouosl\blog\models\UploadImage;
+use kouosl\poll\models\pollData;
+use kouosl\poll\models\UploadImage;
 use Yii;
-use kouosl\blog\models\Blog;
-use kouosl\blog\models\BlogSearch;
-use kouosl\blog\models\Content;
+use kouosl\poll\models\poll;
+use kouosl\poll\models\pollSearch;
+//use kouosl\poll\models\Content;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UnauthorizedHttpException;
@@ -16,9 +16,9 @@ use yii\web\UploadedFile;
 use yii\filters\AccessControl;
 use yii\data\ActiveDataProvider;
 /**
- * BlogController implements the CRUD actions for menu model.
+ * pollController implements the CRUD actions for menu model.
  */
-class BlogController extends DefaultController
+class pollController extends DefaultController
 {
 
 
@@ -54,7 +54,7 @@ class BlogController extends DefaultController
     
     }
     
-    public function actionContent()
+  /*public function actionContent()
     {
         $provider = new ActiveDataProvider(
             [
@@ -67,7 +67,8 @@ class BlogController extends DefaultController
         return $this -> render ('_content',[
             'dataProvider' => $provider,
         ]);
-    }
+    } /**
+     */
 
     public function actionIndex()
     {
@@ -75,7 +76,7 @@ class BlogController extends DefaultController
     }
 
     /**
-     * Lists all blog models.
+     * Lists all poll models.
      * @return mixed
      */
     public function actionManage()
@@ -83,7 +84,7 @@ class BlogController extends DefaultController
     	
 
     	
-        $searchModel = new BlogSearch();
+        $searchModel = new pollSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('_manage', [
@@ -115,7 +116,7 @@ class BlogController extends DefaultController
     {
 
     	
-        $model = new Blog();
+        $model = new poll();
 
         $uploadImage = new UploadImage();
 
@@ -127,7 +128,7 @@ class BlogController extends DefaultController
 
             if(!$model->save()){
 
-                yii::$app->session->setFlash('flashMessage', ['type' => 'error', 'message' => Module::t('blog', 'blog Not Saved' )]);
+                yii::$app->session->setFlash('flashMessage', ['type' => 'error', 'message' => Module::t('poll', 'poll Not Saved' )]);
 
                 return $this->render('_create', ['model' => $model]); // error
             }
@@ -144,7 +145,7 @@ class BlogController extends DefaultController
     }
 
     /**
-     * Updates an existing blog model.
+     * Updates an existing poll model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -168,7 +169,7 @@ class BlogController extends DefaultController
 
             if(!$model->save()){
 
-                yii::$app->session->setFlash('flashMessage', ['type' => 'error', 'message' => Module::t('blog', 'blog Not Saved' )]);
+                yii::$app->session->setFlash('flashMessage', ['type' => 'error', 'message' => Module::t('poll', 'poll Not Saved' )]);
 
                 return $this->render('_update', ['model' => $model]); // error
             }
@@ -193,7 +194,7 @@ class BlogController extends DefaultController
     public function actionDelete($id)
     {
 
-        blogData::deleteAll(['blog_id' => $id]);
+        pollData::deleteAll(['poll_id' => $id]);
 
         $model = $this->findModel($id);
 
@@ -208,10 +209,10 @@ class BlogController extends DefaultController
     }
 
     /**
-     * Finds the blog model based on its primary key value.
+     * Finds the poll model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return blog the loaded model
+     * @return poll the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
