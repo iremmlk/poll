@@ -5,25 +5,26 @@ namespace kouosl\poll\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
+use kouosl\poll\models\Answertable;
 
 /**
- * SampleSearch represents the model behind the search form about `app\modules\sample\models\Sample`.
+ * AnswertableSearch represents the model behind the search form of `kouosl\poll\models\Answertable`.
  */
-class pollSearch extends poll
+class AnswertableSearch extends Answertable
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function rules()
     {
         return [
             [['id'], 'integer'],
-            [['title', 'description'], 'safe'],
+            [['answer_id', 'answer_1', 'answer_2', 'answer_3', 'answer_4'], 'safe'],
         ];
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function scenarios()
     {
@@ -40,7 +41,9 @@ class pollSearch extends poll
      */
     public function search($params)
     {
-        $query = Samples::find();
+        $query = Answertable::find();
+
+        // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -54,12 +57,16 @@ class pollSearch extends poll
             return $dataProvider;
         }
 
+        // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
         ]);
 
-        $query->andFilterWhere(['like', 'title', $this->title])
-            ->andFilterWhere(['like', 'description', $this->description]);
+        $query->andFilterWhere(['like', 'answer_id', $this->answer_id])
+            ->andFilterWhere(['like', 'answer_1', $this->answer_1])
+            ->andFilterWhere(['like', 'answer_2', $this->answer_2])
+            ->andFilterWhere(['like', 'answer_3', $this->answer_3])
+            ->andFilterWhere(['like', 'answer_4', $this->answer_4]);
 
         return $dataProvider;
     }
